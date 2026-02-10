@@ -1,7 +1,7 @@
 /* パララックス */
-body {
+/* body {
     margin: 0;
-}
+} */
 
 /* .horizontal {
     height: 100vh;
@@ -76,4 +76,49 @@ body {
     border-radius: 5px;
     text-align: center;
     font-size: 40px;  
+}
+
+/* 写真四隅配置 */
+body {
+    margin: 0;
+    height: 100vh;
+    position: relative;
+    font-family: sans-serif;
+}
+
+/* 四隅の写真 */
+.corner {
+    position: absolute;
+  width: 400px;   /* サイズ調整 */
+    height: 200px;
+    object-fit: cover;
+}
+
+.top-left {
+    top: 20px;
+    left: 20px;
+}
+
+.top-right {
+    top: 20px;
+    right: 20px;
+}
+
+.bottom-left {
+    bottom: 20px;
+    left: 20px;
+}
+
+.bottom-right {
+    bottom: 20px;
+    right: 20px;
+}
+
+/* 真ん中テキスト */
+.center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
