@@ -26,3 +26,6 @@ window.addEventListener('scroll', () => {
   track.style.transform = `translateX(${-progress * 200}vw)`;
 //   progress += 0.01;
 });
+
+
+
