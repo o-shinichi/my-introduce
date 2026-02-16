@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!-- HTML -->
+ <!DOCTYPE html>
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
@@ -13,3 +14,195 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     </head>
+    <body>
+<div class="interactive-grid">
+  <div class="grid-item" data-size="large">
+    <div class="item-overlay">
+      <h3>Project 01</h3>
+      <p>Web Application</p>
+    </div>
+    <img src="img/Image.jpg" alt="Project 1">
+  </div>
+  <div class="grid-item" data-size="small">
+    <div class="item-overlay">
+      <h3>Project 02</h3>
+      <p>Mobile App</p>
+    </div>
+    <img src="img/soccer1.jpg" alt="Project 2">
+  </div>
+  <div class="grid-item" data-size="medium">
+    <div class="item-overlay">
+      <h3>Project 03</h3>
+      <p>Branding</p>
+    </div>
+    <img src="img/soccer2.jpg" alt="Project 3">
+
+  </div>
+  <div class="grid-item" data-size="small">
+    <div class="item-overlay">
+      <h3>Project 04</h3>
+      <p>UI Design</p>
+    </div>
+    <img src="img/soccer3.jpg" alt="Project 4">
+  </div>
+  <div class="grid-item" data-size="medium">
+    <div class="item-overlay">
+      <h3>Project 05</h3>
+      <p>E-Commerce</p>
+    </div>
+    <img src="img/soccer4.jpg" alt="Project 5">
+  </div>
+</div>
+<div class="list">
+<ul>
+    <li>1枚目：高3 実はキャプテンでした</li>
+    <li>2枚目：大2 神戸遠征 ボロ負けしました</li>
+    <li>3枚目：まさかの大会優勝全国へ</li>
+    <li>4枚目：集合写真はまじめにとれません</li>
+    <li>5枚目：高校最後の引退試合</li>
+</ul>
+</div>
+</body>
+<script>
+    // JavaScript - グリッドインタラクション
+document.addEventListener('DOMContentLoaded', () => {
+  const gridItems = document.querySelectorAll('.grid-item');
+  
+  gridItems.forEach(item => {
+    // クリックで拡張
+    item.addEventListener('click', () => {
+      // 他のアイテムの拡張を解除
+      gridItems.forEach(i => i.classList.remove('expanded'));
+      // クリックされたアイテムを拡張
+      item.classList.toggle('expanded');
+    });
+  });
+  
+  // グリッド外クリックで拡張解除
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.grid-item')) {
+      gridItems.forEach(i => i.classList.remove('expanded'));
+    }
+  });
+});
+</script>
+
+<style>
+    /* CSS - インタラクティブグリッド */
+.interactive-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 16px;
+  padding: 40px;
+  /* background: #0a0a0a; */
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* サイズバリエーション */
+.grid-item[data-size="large"] {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.grid-item[data-size="medium"] {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.grid-item[data-size="small"] {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.grid-item:hover .item-overlay {
+  opacity: 1;
+}
+
+.grid-item:hover img {
+  transform: scale(1.1);
+}
+
+.item-overlay h3 {
+  color: #ffffff;
+  font-size: 20px;
+  margin: 0 0 8px 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease 0.1s;
+}
+
+.item-overlay p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin: 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease 0.15s;
+}
+
+.grid-item:hover .item-overlay h3,
+.grid-item:hover .item-overlay p {
+  transform: translateY(0);
+}
+
+/* ホバー時にグリッドを拡張 */
+.grid-item.expanded {
+  grid-column: span 2 !important;
+  grid-row: span 2 !important;
+  z-index: 10;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+  .interactive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-item[data-size="large"],
+  .grid-item[data-size="medium"] {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .interactive-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-item[data-size="large"],
+  .grid-item[data-size="medium"],
+  .grid-item[data-size="small"] {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+</style>
