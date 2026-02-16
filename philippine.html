@@ -1,15 +1,250 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>My introduce</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width , initial-scale=1"> <!--pcとスマホをスイッチするために必要なコード-->
-        <link rel="icon" href="img/favicon.ico">
-        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css"> <!--cssリセット-->
-        <link rel="stylesheet" href="css/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="js/main.js" defer></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My introduce</title>
 
-    </head>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body{
+  background:#f8f5f0;
+  color:#333;
+  line-height:1.6;
+}
+
+/* ===== Hero ===== */
+.hero{
+  height:100vh;
+  background:url("img/view7.jpg") center/cover no-repeat;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+}
+
+.hero-content{
+  position:relative;
+  z-index:1;
+}
+
+.hero h1{
+  font-size:clamp(2rem,5vw,4rem);
+  font-weight:600;
+}
+
+.hero p{
+  margin-top:10px;
+  font-weight:300;
+}
+
+/* ===== 3 Photos Section ===== */
+.moments{
+  padding:80px 10%;
+  text-align:center;
+}
+
+.moments h2{
+  margin-bottom:40px;
+  font-size:2rem;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 20px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:scale(1.05);
+}
+
+.card img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+}
+
+.card h3{
+  padding:15px;
+  font-weight:600;
+}
+
+/* ===== Timeline ===== */
+.timeline{
+  position:relative;
+  padding:80px 10%;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  width:3px;
+  height:100%;
+  background:#ccc;
+}
+
+.timeline-item{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:60px;
+}
+
+.timeline-item:nth-child(even){
+  flex-direction:row-reverse;
+}
+
+.timeline-content{
+  width:45%;
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+.timeline-content img{
+  width:100%;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+
+.timeline-dot{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  width:20px;
+  height:20px;
+  background:#ff914d;
+  border-radius:50%;
+}
+
+/* ===== Final Section ===== */
+.final{
+  height:60vh;
+  background:url("final.jpg") center/cover no-repeat;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+}
+
+.final::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+}
+
+.final h2{
+  position:relative;
+  font-size:clamp(2rem,4vw,3.5rem);
+  z-index:1;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  background:#eee;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>My good experience</h1>
+    <p>2025 in Philippine</p>
+  </div>
+</section>
+
+<!-- 3 Moments -->
+<section class="moments">
+  <h2>Memorable Moments</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="img/phili (8).jpg">
+      <h3>My school</h3>
+    </div>
+    <div class="card">
+      <img src="img/phili(2).jpg">
+      <h3>Crazy Night</h3>
+    </div>
+    <div class="card">
+      <img src="img/phili (7).jpg">
+      <h3>My Favorite Place</h3>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="timeline">
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <img src="img/phili10.jpg">
+      <h3>My Batchmate</h3>
+      <p>Excited but nervous.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <img src="img/phili (1).jpg">
+      <h3>New Friends</h3>
+      <p>He is Saudi Arabian</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <img src="img/phili (6).jpg">
+      <h3>Travel Adventures</h3>
+      <p>Whale shark watching</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- Final Message -->
+<section class="final">
+  <h2>This wasn’t just two months.<br>It changed my life.</h2>
+</section>
+
+<footer>
+  © 2025 My Study Abroad Story
+</footer>
+
+</body>
+</html>
