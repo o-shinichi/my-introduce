@@ -67,16 +67,16 @@
 
 
 /* ボタン */
-.btn{
+/* a .btn{
     display: flex;
     padding: 10px 20px;
-    background: black;
-    color: white;
+    background: rgb(84, 49, 49);
+    color: rgb(8, 141, 76);
     text-decoration: none;
     border-radius: 5px;
     text-align: center;
     font-size: 40px;  
-}
+} */
 
 /* 写真四隅配置 */
 body {
