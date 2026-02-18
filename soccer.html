@@ -91,14 +91,16 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <style>
-    /* CSS - インタラクティブグリッド */
+    /* =========================
+   GRID（PC）
+========================= */
+
 .interactive-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 200px;
   gap: 16px;
   padding: 40px;
-  /* background: #0a0a0a; */
 }
 
 .grid-item {
@@ -109,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* サイズバリエーション */
+/* サイズ */
 .grid-item[data-size="large"] {
   grid-column: span 2;
   grid-row: span 2;
@@ -132,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
   transition: transform 0.5s ease;
 }
 
+/* overlay */
 .item-overlay {
   position: absolute;
   inset: 0;
@@ -156,71 +159,71 @@ document.addEventListener('DOMContentLoaded', () => {
   transform: scale(1.1);
 }
 
-.item-overlay h3 {
-  color: #ffffff;
-  font-size: 20px;
-  margin: 0 0 8px 0;
-  transform: translateY(20px);
-  transition: transform 0.3s ease 0.1s;
-}
+/* =========================
+   LIST（PC）
+========================= */
 
-.item-overlay p {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
-  margin: 0;
-  transform: translateY(20px);
-  transition: transform 0.3s ease 0.15s;
-}
-
-.grid-item:hover .item-overlay h3,
-.grid-item:hover .item-overlay p {
-  transform: translateY(0);
-}
-
-.list{
+.list {
   display: flex;
-  align-items: center;
-  gap: 500px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 80px;   /* ← 500pxやめた */
+  padding: 60px 40px;
 }
 
-ul{
+.list ul {
   margin: 0;
-  padding-right: 50px;
-  padding-top: 100px;
-}
-/* ホバー時にグリッドを拡張 */
-.grid-item.expanded {
-  grid-column: span 2 !important;
-  grid-row: span 2 !important;
-  z-index: 10;
+  padding: 0;
 }
 
-/* レスポンシブ対応 */
- @media (max-width: 1024px) {
+.list li {
+  margin-bottom: 10px;
+}
+
+/* =========================
+   タブレット（1024px以下）
+========================= */
+
+@media (max-width: 1024px) {
+
   .interactive-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .grid-item[data-size="large"],
   .grid-item[data-size="medium"] {
     grid-column: span 2;
-  } 
-} 
+    grid-row: span 1; /* ← 行をリセット */
+  }
+
+  .list {
+    gap: 40px;
+  }
+}
+
+/* =========================
+   スマホ（640px以下）
+========================= */
 
 @media (max-width: 640px) {
+
   .interactive-grid {
     grid-template-columns: 1fr;
+    grid-auto-rows: 250px; /* 少し高さ調整 */
+    padding: 20px;
   }
-  
+
   .grid-item[data-size="large"],
   .grid-item[data-size="medium"],
   .grid-item[data-size="small"] {
     grid-column: span 1;
     grid-row: span 1;
   }
-  
 
+  /* 🔥 ここ重要 */
   .list {
+    flex-direction: column;   /* 縦並びにする */
+    gap: 20px;
     padding: 20px;
     margin: 40px auto;
   }
@@ -232,7 +235,6 @@ ul{
   .list li {
     font-size: 14px;
   }
-
-
 }
+
 </style>
