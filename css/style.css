@@ -136,6 +136,26 @@ body {
     z-index: -1;
     height: 200px;
 }
+@media (max-width: 768px) {
+
+  .corner {
+    width: 120px;
+    height: 120px;
+  }
+
+  .center-text {
+    padding: 20px;
+  }
+
+  .center-text h1 {
+    font-size: 22px;
+  }
+
+  .center-text p {
+    font-size: 14px;
+  }
+
+}
 /* .center-text h1,
 .center-text p{
     position: relative;
