@@ -13,3 +13,297 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     </head>
+    <style>
+      body {
+      margin: 0;
+      font-family: "Helvetica Neue", sans-serif;
+      background: #0a0a0a;
+      color: white;
+    }
+
+    h1, h2 {
+      margin: 0;
+    }
+
+    /* =====================
+       ヒーロー
+    ===================== */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(
+        rgba(91,45,145,0.6),
+        rgba(0,0,0,0.9)
+      ),
+      url("https://images.unsplash.com/photo-1508098682722-e99c43a406b2");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      letter-spacing: 4px;
+    }
+
+    /* =====================
+       タイムライン
+    ===================== */
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 100px auto;
+      padding: 0 20px;
+    }
+
+    /* 縦ライン */
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: #5B2D91;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 40px;
+      box-sizing: border-box;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 0.6s ease;
+    }
+
+    .timeline-item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 左右交互 */
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    /* 丸 */
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 40px;
+      width: 20px;
+      height: 20px;
+      background: #7C4DFF;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #7C4DFF;
+    }
+
+    .timeline-item:nth-child(odd)::before {
+      right: -10px;
+    }
+
+    .timeline-item:nth-child(even)::before {
+      left: -10px;
+    }
+
+    /* カード */
+    .content {
+      background: #111;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .content h2 {
+      color: #7C4DFF;
+      margin-bottom: 10px;
+    }
+    /* =====================
+   スライドショー
+===================== */
+.slideshow {
+  position: relative;
+  max-width: 1000px;
+  margin: 80px auto;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.slides {
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slideshow img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+/* 矢印ボタン */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(91,45,145,0.8);
+  color: white;
+  border: none;
+  font-size: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+  background: #7C4DFF;
+}
+
+/* スマホ */
+@media (max-width: 768px) {
+  .slideshow img {
+    height: 250px;
+  }
+}
+
+
+    /* =====================
+       レスポンシブ
+    ===================== */
+    @media (max-width: 768px) {
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        text-align: left !important;
+        left: 0 !important;
+      }
+
+      .timeline-item::before {
+        left: 10px !important;
+      }
+    }
+
+  </style>
+</head>
+<body>
+    <section class="slideshow">
+  <div class="slides">
+    <img src="img/sanfrecce1.jpg" class="slide active">
+    <img src="img/sanfrecce2.jpg" class="slide">
+    <img src="img/sanfrecce3.jpg" class="slide">
+  </div>
+
+  <button class="prev">‹</button>
+  <button class="next">›</button>
+</section>
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <h1>紫の軌跡<br>SANFRECCE HIROSHIMA</h1>
+  </section>
+
+  <!-- タイムライン -->
+  <section class="timeline">
+
+    <div class="timeline-item">
+      <div class="content">
+        <h2>1992 - 創設</h2>
+        <p>サンフレッチェ広島誕生。広島の誇りとして歩み始める。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="content">
+        <h2>2012 - Jリーグ優勝</h2>
+        <p>クラブ初のリーグ優勝。黄金期の始まり。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="content">
+        <h2>印象の試合</h2>
+        <p>自分が一番熱くなった試合。紫の力を感じた瞬間。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="content">
+        <h2>現在</h2>
+        <p>新スタジアムとともに、新たな歴史へ。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    // スクロールで表示
+    const items = document.querySelectorAll('.timeline-item');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    items.forEach(item => observer.observe(item));
+  </script>
+  <script>
+  const slides = document.querySelectorAll('.slide');
+  const next = document.querySelector('.next');
+  const prev = document.querySelector('.prev');
+
+  let current = 0;
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
+  }
+
+  function nextSlide() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }
+
+  function prevSlideFunc() {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+  }
+
+  next.addEventListener('click', nextSlide);
+  prev.addEventListener('click', prevSlideFunc);
+
+  // 自動再生
+  setInterval(nextSlide, 4000);
+</script>
+
+
+
+    </body>
