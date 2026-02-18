@@ -180,12 +180,12 @@ document.addEventListener('DOMContentLoaded', () => {
 .list{
   display: flex;
   align-items: center;
-  gap: 700px;
+  gap: 500px;
 }
 
 ul{
   margin: 0;
-  padding-left: 20px;
+  padding-right: 50px;
   padding-top: 100px;
 }
 /* ホバー時にグリッドを拡張 */
@@ -196,7 +196,7 @@ ul{
 }
 
 /* レスポンシブ対応 */
-@media (max-width: 1024px) {
+ @media (max-width: 1024px) {
   .interactive-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -204,8 +204,8 @@ ul{
   .grid-item[data-size="large"],
   .grid-item[data-size="medium"] {
     grid-column: span 2;
-  }
-}
+  } 
+} 
 
 @media (max-width: 640px) {
   .interactive-grid {
@@ -218,5 +218,21 @@ ul{
     grid-column: span 1;
     grid-row: span 1;
   }
+  
+
+  .list {
+    padding: 20px;
+    margin: 40px auto;
+  }
+
+  .list h1 {
+    font-size: 20px;
+  }
+
+  .list li {
+    font-size: 14px;
+  }
+
+
 }
 </style>
