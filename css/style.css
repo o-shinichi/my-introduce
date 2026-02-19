@@ -136,7 +136,7 @@ body {
     z-index: -1;
     height: 120px;
 }
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
 
   .corner {
     width: 120px;
@@ -155,7 +155,7 @@ body {
     font-size: 14px;
   }
 
-} */
+}
 /* .center-text h1,
 .center-text p{
     position: relative;
